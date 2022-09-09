@@ -8,6 +8,8 @@ import circus.stuff.Cannon;
 import circus.stuff.Equipment;
 import circus.stuff.Ladder;
 
+import java.util.ArrayList;
+
 public class Circus {
     private static Animal[] animals = {
             new Duck("Drake"),
@@ -44,5 +46,19 @@ public class Circus {
         makeAnimalsTalk();
         System.out.println("Total value of animals " + calculateAssetValue(animals));
         System.out.println("Total value of equipments " + calculateAssetValue(equipments));
+
+        ArrayList<Animal> animalArrayList = new ArrayList<>();
+        animalArrayList.add(new Duck("donald"));
+        animalArrayList.add(new Parrot("cat"));
+
+        animalArrayList.sort(Animal.AnimalNameComparator);
+        printAllAnimals(animalArrayList);
+    }
+
+
+    public static void printAllAnimals(ArrayList<Animal> animalArrayList){
+        for(Animal animal: animalArrayList){
+            System.out.println(animal);
+        }
     }
 }
